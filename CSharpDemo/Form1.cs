@@ -15,5 +15,17 @@ namespace CSharpDemo
         {
             InitializeComponent();
         }
+
+        private void DownloadSmallSpeak_Click(object sender, EventArgs e)
+        {
+            Down<SmallSpeakPUA>();
+        }
+
+        public void Down<T>() where T : BaseSmallSpeak, new()
+        {
+            var helper = new T();
+            var html = helper.HttpGet(string.Empty);
+            helper.HandleHtml(html);
+        }
     }
 }

@@ -3,14 +3,14 @@
     partial class Form1
     {
         /// <summary>
-        /// 必需的设计器变量。
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清理所有正在使用的资源。
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,21 +20,41 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.DownloadSmallSpeak = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // DownloadSmallSpeak
+            // 
+            this.DownloadSmallSpeak.Location = new System.Drawing.Point(713, 415);
+            this.DownloadSmallSpeak.Name = "DownloadSmallSpeak";
+            this.DownloadSmallSpeak.Size = new System.Drawing.Size(75, 23);
+            this.DownloadSmallSpeak.TabIndex = 0;
+            this.DownloadSmallSpeak.Text = "下载小说";
+            this.DownloadSmallSpeak.UseVisualStyleBackColor = true;
+            this.DownloadSmallSpeak.Click += new System.EventHandler(this.DownloadSmallSpeak_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DownloadSmallSpeak);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button DownloadSmallSpeak;
     }
 }
-
