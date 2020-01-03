@@ -1,4 +1,5 @@
 ﻿using Less.Html;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -153,8 +154,8 @@ namespace CSharpDemo
     class SmallSpeakPUA : BaseSmallSpeak
     {
         //全部目录url
-        const string Url_Html = "http://www.iampua.com/book/";
-        readonly string Url_Txt = "http://www.iampua.com/";
+        const string Url_Html = "http://www.iampua.com/book";
+        readonly string Url_Txt = "http://www.iampua.com";
 
         /// <summary>
         /// 抓取网页并转码
@@ -210,19 +211,31 @@ namespace CSharpDemo
         public override string HandleHtml(string html)
         {
             var document = HtmlParser.Parse(html);
-            var res = document.getElementsByTagName("span");
+            var span = document.getElementsByTagName("span");
 
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            foreach (var item in res)
+            //目录
+            Dictionary<string, string> catalogue = new Dictionary<string, string>();
+            foreach (var item in span)
             {
                 if (item.firstChild.nodeName == "A")
                 {
                     var child = item.firstChild as Element;
-                    var R = HttpGet(Url_Txt + child.getAttribute("href"));
-                    //dic.Add(child.textContent, child.getAttribute("href"));
+                    var href = Url_Txt + child.getAttribute("href");
+                    var body = HttpGet(href);
+                    catalogue.Add(href, body);
                 }
             }
 
+            foreach (var item in catalogue)
+            {
+                var res = HtmlParser.Parse(item.Value);
+                var section = res.getElementsByTagName("section")[0].firstChild as Element;
+                var li = section.childNodes;
+                foreach (var itemLi in li)
+                {
+                    //itemLi
+                }
+            }
 
 
             string Novel_Name = Regex.Match(html, @"(?<=<span class=""title"">)([\S\s]*?)(?=</span>)").Value;
