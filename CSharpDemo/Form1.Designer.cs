@@ -37,7 +37,7 @@
             this.DownloadSmallSpeak.Name = "DownloadSmallSpeak";
             this.DownloadSmallSpeak.Size = new System.Drawing.Size(75, 23);
             this.DownloadSmallSpeak.TabIndex = 0;
-            this.DownloadSmallSpeak.Text = "下载小说";
+            this.DownloadSmallSpeak.Text = "Download";
             this.DownloadSmallSpeak.UseVisualStyleBackColor = true;
             this.DownloadSmallSpeak.Click += new System.EventHandler(this.DownloadSmallSpeak_Click);
             // 
